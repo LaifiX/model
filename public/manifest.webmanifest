@@ -1,0 +1,11 @@
+{
+  "name": "Čarokarty",
+  "short_name": "Čarokarty",
+  "description": "Naskenuj čarovnú kartu a zjaví sa ti rozprávková bytosť v 3D.",
+  "start_url": "./#/skenovat",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1f1838",
+  "theme_color": "#1f1838",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
