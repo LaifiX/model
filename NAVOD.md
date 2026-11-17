@@ -21,7 +21,14 @@ Bez kamery: na stránke **Karty** je pri každej karte odkaz **Vyskúšať bez k
 - **Detail bytosti:** prepínač 3D/2D (v 3D sa dá model otáčať a približovať prstami), príbeh, vlastnosti, schopnosti a zaujímavosť.
 - **Karty:** 4 čarovné karty s QR kódmi pripravené na tlač.
 
-Bytosti: Drak Iskrík, Víla Rosička, Škriatok Machuľa a Vodník Bublinka.
+Bytosti: Drak Iskrík, Víla Rosička, Škriatok Machuľa, Vodník Bublinka a Jednorožec Lúčik.
+
+**Ďalšie vychytávky:**
+- **Ťukni na bytosť:** každá reaguje po svojom. Drak vyfúkne oblak iskier, víla sa zatočí, škriatok vyskočí, vodník nadvihne klobúk a jednorožec sa vzopne.
+- **Zvuky:** zjavenie, fanfára pri chytení a hlas každej bytosti. Vypínajú sa tlačidlom s reproduktorom.
+- **Slávnostné chytenie:** konfety a karta, ktorá odletí do Zbierky.
+- **Foto s bytosťou:** ikona fotoaparátu pri zjavení v kamere. Fotku si uložíš alebo pošleš.
+- **Pridanie na plochu:** v prehliadači daj „Pridať na plochu“. Aplikácia sa potom otvára ako bežná appka a funguje aj bez internetu.
 
 Zbierka sa ukladá priamo v telefóne, v prehliadači.
 
@@ -35,8 +42,9 @@ npm run build    # produkčná verzia do priečinka dist
 - 3D modely sú poskladané v kóde z tvarov (three.js / React Three Fiber): `src/three/models.tsx`
 - 2D ilustrácie sú SVG: `src/art/CreatureArt.tsx`
 - Texty o bytostiach: `src/data/creatures.ts`
+- Zvuky (generované, bez súborov): `src/lib/sfx.ts`
 
-Novú bytosť pridáš tak, že doplníš záznam do `creatures.ts`, model do `models.tsx` a ilustráciu do `CreatureArt.tsx`.
+Novú bytosť pridáš tak, že doplníš záznam do `creatures.ts`, model do `models.tsx`, ilustráciu do `CreatureArt.tsx` a hlas do `sfx.ts`.
 
 ## Nápady na ďalšie kroky
 

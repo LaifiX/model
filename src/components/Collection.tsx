@@ -12,7 +12,8 @@ export function Collection({ owned }: { owned: CreatureId[] }) {
       <header className="page-head">
         <h1>Moja zbierka</h1>
         <p className="progress-text">
-          {count} zo {CREATURES.length} bytostí
+          {count === CREATURES.length ? 'Máš všetky bytosti! ' : ''}
+          {count} / {CREATURES.length} bytostí
         </p>
         <div className="progress" aria-hidden="true">
           <span style={{ width: `${(count / CREATURES.length) * 100}%` }} />

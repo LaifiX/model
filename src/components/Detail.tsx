@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { CreatureArt } from '../art/CreatureArt';
 import { CREATURE_BY_ID, type CreatureId } from '../data/creatures';
-import { CreatureCanvas } from '../three/CreatureCanvas';
+import { LazyCreatureCanvas } from '../three/LazyCreatureCanvas';
+import { SoundToggle } from './SoundToggle';
 import { RarityBadge } from './RarityBadge';
 
 export function Detail({ id }: { id: CreatureId }) {
@@ -10,15 +11,18 @@ export function Detail({ id }: { id: CreatureId }) {
 
   return (
     <div className="page detail" style={{ ['--c' as string]: c.color }}>
-      <a className="back-link" href="#/zbierka">
-        ‹ Zbierka
-      </a>
+      <div className="detail-top">
+        <a className="back-link" href="#/zbierka">
+          ‹ Zbierka
+        </a>
+        <SoundToggle className="is-flat" />
+      </div>
 
       <section className="detail-stage">
         {view === '3d' ? (
           <>
-            <CreatureCanvas id={id} />
-            <p className="stage-hint">Otáčaj prstom · priblíž dvoma prstami</p>
+            <LazyCreatureCanvas id={id} />
+            <p className="stage-hint">Ťukni na bytosť · otáčaj prstom · priblíž dvoma prstami</p>
           </>
         ) : (
           <div className="detail-2d">

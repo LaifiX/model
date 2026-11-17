@@ -1,4 +1,4 @@
-export type CreatureId = 'drak' | 'vila' | 'skriatok' | 'vodnik';
+export type CreatureId = 'drak' | 'vila' | 'skriatok' | 'vodnik' | 'jednorozec';
 export type Rarity = 'bežná' | 'vzácna' | 'legendárna';
 
 export interface Creature {
@@ -109,6 +109,29 @@ export const CREATURES: Creature[] = [
       { label: 'Odvaha', value: 3 },
       { label: 'Huncútstvo', value: 2 },
       { label: 'Dobrota', value: 4 },
+    ],
+  },
+  {
+    id: 'jednorozec',
+    name: 'Jednorožec Lúčik',
+    title: 'Strážca dúhy nad vodopádom',
+    rarity: 'legendárna',
+    color: '#9b8cff',
+    habitat: 'Skryté údolie za vodopádom, kde po daždi vždy svieti dúha',
+    size: 'Ako malý poník, hrivu má farebnú ako dúha',
+    food: 'Ďatelina so štyrmi lístkami, med a lúče zapadajúceho slnka',
+    traits: ['plachý', 'spravodlivý', 'rád sa smeje'],
+    abilities: ['Rohom kreslí dúhy na oblohu', 'Kde stúpi, vyrastie kvet', 'Vycíti, keď je niekto smutný'],
+    story: [
+      'Lúčik sa narodil z prvého lúča slnka, ktorý po veľkej búrke prerazil mraky. Preto má v hrive všetky farby dúhy a jeho roh svieti ako zlato.',
+      'Ľudí sa trochu bojí, no deťom, ktoré sú k zvieratám dobré, sa občas ukáže pri vodopáde. Kto ho zazrie, tomu sa vraj splní jedno tiché prianie.',
+    ],
+    funFact: 'Keď sa Lúčik zasmeje, z rohu mu vyletí malá dúha, ktorá vydrží presne tri nádychy.',
+    stats: [
+      { label: 'Čarovná sila', value: 5 },
+      { label: 'Odvaha', value: 4 },
+      { label: 'Huncútstvo', value: 1 },
+      { label: 'Dobrota', value: 5 },
     ],
   },
 ];

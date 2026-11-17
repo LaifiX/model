@@ -2,7 +2,9 @@ import jsQR from 'jsqr';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CreatureId } from '../data/creatures';
 import { parseCardPayload } from '../lib/collection';
+import { preload3D } from '../three/LazyCreatureCanvas';
 import { RevealView } from './RevealView';
+import { SoundToggle } from './SoundToggle';
 
 type Status = 'starting' | 'scanning' | 'found' | 'denied' | 'insecure' | 'unsupported';
 
@@ -25,6 +27,7 @@ export function Scanner({ has, onCatch, onOpen }: Props) {
     let cancelled = false;
 
     async function start() {
+      preload3D();
       if (!window.isSecureContext) {
         setStatus('insecure');
         return;
@@ -120,6 +123,12 @@ export function Scanner({ has, onCatch, onOpen }: Props) {
       <video ref={videoRef} className="scanner-video" playsInline muted autoPlay />
       <div className="scanner-vignette" aria-hidden="true" />
 
+      {status !== 'found' && (
+        <div className="reveal-topbar">
+          <SoundToggle />
+        </div>
+      )}
+
       {status !== 'found' && !blocked && (
         <div className="scanner-ui">
           <div className="viewfinder" aria-hidden="true">
@@ -164,7 +173,14 @@ export function Scanner({ has, onCatch, onOpen }: Props) {
       )}
 
       {status === 'found' && foundId && (
-        <RevealView id={foundId} owned={has(foundId)} onCatch={onCatch} onOpen={onOpen} onScanAgain={scanAgain} overlay />
+        <RevealView
+          id={foundId}
+          owned={has(foundId)}
+          video={videoRef.current}
+          onCatch={onCatch}
+          onOpen={onOpen}
+          onScanAgain={scanAgain}
+        />
       )}
     </div>
   );

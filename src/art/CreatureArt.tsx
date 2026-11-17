@@ -183,11 +183,65 @@ function Vodnik() {
   );
 }
 
+function Jednorozec() {
+  const rainbow = ['#ff8fb1', '#ffc94d', '#6ee7c5', '#8fb8ff', '#b99bff'];
+  return (
+    <g>
+      {/* chvost */}
+      {rainbow.map((c, i) => (
+        <path
+          key={c}
+          d={`M48 ${132 + i * 5} C 22 ${128 + i * 8}, 18 ${160 + i * 6}, 30 ${176 + i * 3}`}
+          fill="none"
+          stroke={c}
+          strokeWidth={7}
+          strokeLinecap="round"
+        />
+      ))}
+      {/* zadné nohy */}
+      <rect x="58" y="150" width="16" height="44" rx="7" fill="#efe8fb" {...line} />
+      <rect x="126" y="150" width="16" height="44" rx="7" fill="#efe8fb" {...line} />
+      {/* krk (pod telom aj hlavou, aby nadväzoval) */}
+      <path d="M108 138 Q 112 96 130 70 L 160 82 Q 146 104 146 138 Z" fill="#fbf7ff" {...line} />
+      {/* telo */}
+      <ellipse cx="100" cy="140" rx="54" ry="34" fill="#fbf7ff" {...line} />
+      {/* predné nohy */}
+      <rect x="76" y="156" width="16" height="42" rx="7" fill="#fbf7ff" {...line} />
+      <rect x="108" y="156" width="16" height="42" rx="7" fill="#fbf7ff" {...line} />
+      {[76, 108, 58, 126].map((x) => (
+        <rect key={x} x={x} y={x === 58 || x === 126 ? 186 : 190} width="16" height="9" rx="3" fill="#e8b84d" {...line} strokeWidth={3} />
+      ))}
+      {/* hlava */}
+      <ellipse cx="150" cy="70" rx="26" ry="22" fill="#fbf7ff" {...line} />
+      <ellipse cx="168" cy="80" rx="15" ry="12" fill="#ffe6f1" {...line} strokeWidth={3} />
+      <circle cx="172" cy="80" r="2.2" fill="#c88aa8" />
+      <path d="M134 52 l -4 -16 l 12 10 z" fill="#fbf7ff" {...line} strokeWidth={3} />
+      <circle cx="150" cy="66" r="6.5" fill="#fff" {...line} strokeWidth={3} />
+      <circle cx="151.5" cy="67" r="3.4" fill={INK} />
+      <circle cx="153" cy="65" r="1.2" fill="#fff" />
+      <ellipse cx="160" cy="76" rx="4.5" ry="2.6" fill="#ffa8b8" />
+      {/* roh */}
+      <path d="M148 50 L 170 14 L 160 54 Z" fill="#ffd36b" {...line} strokeWidth={3} />
+      <path d="M152 44 l 9 -4 M156 35 l 8 -4 M160 26 l 6 -3" stroke="#e8a83d" strokeWidth={2.5} strokeLinecap="round" />
+      {/* hriva */}
+      {rainbow.map((c, i) => (
+        <circle key={c} cx={134 - i * 6} cy={56 + i * 14} r={10} fill={c} {...line} strokeWidth={3} />
+      ))}
+      {/* hviezdičky */}
+      <g fill="#fff3a0" {...line} strokeWidth={2}>
+        <path d="M182 30 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z" />
+        <path d="M34 70 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 z" />
+      </g>
+    </g>
+  );
+}
+
 const ART: Record<CreatureId, () => React.JSX.Element> = {
   drak: Drak,
   vila: Vila,
   skriatok: Skriatok,
   vodnik: Vodnik,
+  jednorozec: Jednorozec,
 };
 
 export function CreatureArt({
