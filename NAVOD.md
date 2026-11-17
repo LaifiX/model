@@ -19,7 +19,7 @@ Bez kamery: na stránke **Karty** je pri každej karte odkaz **Vyskúšať bez k
 - **Skenovať:** živý obraz z kamery, hľadanie QR kódu a bytosť, ktorá sa v 3D zjaví nad obrazom.
 - **Zbierka:** získané bytosti ako zberateľské karty. Neobjavené sú len tiene s otáznikom.
 - **Detail bytosti:** prepínač 3D/2D (v 3D sa dá model otáčať a približovať prstami), príbeh, vlastnosti, schopnosti a zaujímavosť.
-- **Karty:** 4 čarovné karty s QR kódmi pripravené na tlač.
+- **Karty:** 5 čarovných kariet s QR kódmi pripravené na tlač.
 
 Bytosti: Drak Iskrík, Víla Rosička, Škriatok Machuľa, Vodník Bublinka a Jednorožec Lúčik.
 
@@ -50,4 +50,4 @@ Novú bytosť pridáš tak, že doplníš záznam do `creatures.ts`, model do `m
 
 - Rozpoznávanie samotného obrázka namiesto QR (napr. MindAR) a bytosť postavená priamo na karte.
 - Pravá AR: postaviť bytosť na stôl cez Scene Viewer / Quick Look.
-- Zverejnenie na Netlify, aby fungovala kdekoľvek bez spúšťania počítača (`netlify.toml` je pripravený).
+- Vývoj bytostí: pri opakovanom skenovaní bytosť „vyrastie“.
